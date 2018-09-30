@@ -65,3 +65,53 @@ for (let j = 0; j <= 10; j++) {
     }
     console.log(printStar);
 }
+
+
+
+const humms = function (factor) {
+    var ingredient = function (amount, unit, name) {
+        let ingredientAmount = amount * factor;
+        if (ingredientAmount > 1) {
+            unit += "s";
+        }
+        console.log(`${ingredientAmount} ${unit} ${name}`);
+    };
+    ingredient(1, "can", "chickpeas");
+};
+
+humms(5);
+
+
+let safeMode = true;
+let launchMissiles = function() {
+    console.log('work');
+};
+if (safeMode) {
+    launchMissiles = function() {};
+}
+launchMissiles();
+
+
+console.log("The future says:", future());
+console.log("The future says:", square(2));
+function future() {
+    return "You will never have flying cars";
+}
+function square(x) {
+    return x * x;
+}
+
+
+const power = (base, exponent) => {
+    let result = 1;
+    for (let count = 0; count < exponent; count++) {
+        result *= base;
+    }
+    return result;
+}
+const square1 = (x) => { return x * x; }
+const square2 = x => x * x;
+
+console.log('output', power(3, 3));
+console.log('output', square1(3));
+console.log('output', square2(3));
