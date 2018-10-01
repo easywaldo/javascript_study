@@ -67,6 +67,18 @@ for (let j = 0; j <= 10; j++) {
 }
 
 
+let x = 10;
+if (true) {
+    let y = 20;
+    var z = 30;
+
+    console.log(x + y + z);
+}
+console.log(x + z);
+// y is not here
+//console.log(y);
+
+
 
 const humms = function (factor) {
     var ingredient = function (amount, unit, name) {
