@@ -145,6 +145,14 @@ console.log('output', power(3, 3));
 console.log('output', square1(3));
 console.log('output', square2(3));
 
+const horn = () => {
+    console.log('Toot');
+}
+var hornResult = horn;
+horn();
+hornResult();
+
+
 var buildMultiplier = function(x) {
     return function(y) {
         return x * y;
@@ -166,3 +174,69 @@ var negate = function(func) {
 };
 
 console.log('result :', negate(add1(5)));
+
+
+
+// Call Stack
+function greet(who) {
+    console.log('Hello ' + who);
+}
+greet('Harry');
+console.log('Bye');
+
+function chicken() {
+    return egg();
+}
+function egg() {
+    return chicken();
+}
+// console.log(chicken() + " came first."); // call stack error
+
+// Optional Parameter
+function minus(a, b) {
+    if (b === undefined) return -a;
+    else return a - b;
+}
+console.log(minus(10));
+console.log(minus(10, 5));
+
+// optional parameter
+function ability(base, exponent = 2) {
+    let result = 1;
+    for (let count = 0; count < exponent; count++) {
+        result *= base;
+    }
+    return result;
+}
+
+console.log(ability(3));
+console.log(ability(2, 4));
+
+
+function wrapValue(n) {
+    let local = n;
+    return () => local;
+}
+let wrap1 = wrapValue(1);
+let wrap2 = wrapValue(2);
+console.log(wrap1());
+console.log(wrap2());
+console.log(wrap1(3));
+
+// Closure
+function multiplier(factor) {
+    return number => number * factor;
+}
+let twice = multiplier(2);
+console.log(twice(5));
+
+// recursion
+function repeatDoIt(base, exponent) {
+    if (exponent == 0) {
+        return 1;
+    }
+    else {
+        return base * repeatDoIt(base, exponent - 1);
+    }
+}
+console.log(repeatDoIt(2, 3));
