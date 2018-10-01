@@ -1,3 +1,8 @@
+/**
+ * 
+ * @param {*} x 
+ * @return x + 2
+ */
 var add_2 = function(x) {
     return x + 2;
 }
@@ -6,8 +11,16 @@ var double = function(x) {
     return x * 2;
 }
 
+console.log('result :' + add_2(2, 7));
+
 
 var numbers = [5, 6, 7];
+
+/**
+ * 
+ * @param {*} func 
+ * @param {*} list 
+ */
 var map = function(func, list) {
     var output = [];
     for (idx in list) {
@@ -19,6 +32,11 @@ var map = function(func, list) {
 var output = map(add_2, numbers);
 console.log(output);
 
+/**
+ * 
+ * @param {*} _name 
+ * @param {*} _age 
+ */
 function Test(_name, _age) {
     return {
         name : _name,
@@ -113,7 +131,6 @@ function square(x) {
     return x * x;
 }
 
-
 const power = (base, exponent) => {
     let result = 1;
     for (let count = 0; count < exponent; count++) {
@@ -127,3 +144,25 @@ const square2 = x => x * x;
 console.log('output', power(3, 3));
 console.log('output', square1(3));
 console.log('output', square2(3));
+
+var buildMultiplier = function(x) {
+    return function(y) {
+        return x * y;
+    }
+}
+
+var double = buildMultiplier(2);
+var triple = buildMultiplier(3);
+
+console.log('result', double(3));
+console.log('result', triple(3));
+
+var add1 = function (x) {
+    return x + 1;
+};
+
+var negate = function(func) {
+    return func * -1;
+};
+
+console.log('result :', negate(add1(5)));
