@@ -239,6 +239,7 @@ function repeatDoIt(base, exponent) {
         return base * repeatDoIt(base, exponent - 1);
     }
 }
+
 console.log(repeatDoIt(2, 3));
 
 const f = function(a) {
@@ -254,3 +255,6 @@ let h = a => a % 3;
 f(2);
 console.log(g(2,3));
 console.log(h(5));
+
+console.log(repeatDoIt(2, 3));
+
