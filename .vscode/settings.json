@@ -4,5 +4,6 @@
         "javascriptreact",
         "html",
         "vue"     
-      ]
+    ],
+    "eslint.enable": false
 }
