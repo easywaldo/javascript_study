@@ -2,26 +2,24 @@ var notSelf = {
     id: "awesome",
     cool: function coolFn() {
         //var self = this;
-        console.log(id);
+        console.log(this.id);
     }
 };
 
 var id = "not awesome";
 notSelf.cool();
-setTimeout(notSelf.cool, 100);
+setTimeout(notSelf.cool, 1000);
 
-// var obj = {
-//     count: 0,
-//     cool: function coolFn() {
-//         var self = this;
+var obj = {
+    count: 0,
+    cool: function coolFn() {
+        if (this.count < 1) {
+            setTimeout( function timer(){
+                this.count++; // `this` is safe because of `bind(..)`
+                console.log( "more awesome" );
+            }.bind( this ), 100 ); // look, `bind()`!
+        }
+    }
+};
 
-//         if (self.count < 1) {
-//             setTimeout(function timer() {
-//                 self.count++;
-//                 console.log("awesome?");
-//             }, 100);
-//         }
-//     }
-// };
-
-// obj.cool();
+obj.cool(); // more awesome’
