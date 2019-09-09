@@ -26,3 +26,23 @@ for(let key of mySet.keys()) {
 for(let value of mySet.values()) {
     console.log(value);
 }
+
+let ws = new WeakSet();
+let object1 = {};
+let object2 = function() {};
+let object3 = new Array();
+let object4 = new Object();
+
+ws.add(object1);
+ws.add(object2);
+ws.add(object4);
+console.log(ws.has(object1));
+console.log(ws.has(object2));
+console.log(ws.has(object3));
+console.log(ws.has(object4));
+
+
+ws.delete(object2);
+
+console.log(ws.has(object2));
+
