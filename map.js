@@ -60,3 +60,16 @@ myMap.clear();
 
 console.log(myMap);
 
+let myWeakMap = new WeakMap();
+let object1 = {};
+let object2 = function() {};
+let object3 = new Array();
+let object4 = undefined;
+myWeakMap.set(object1);
+myWeakMap.set(object2);
+myWeakMap.set(object3);
+
+console.log(myWeakMap.has(object1));
+console.log(myWeakMap.has(object2));
+console.log(myWeakMap.has(object3));
+console.log(myWeakMap.has(object4));
